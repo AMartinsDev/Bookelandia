@@ -154,9 +154,15 @@ public class FrmCadCliente extends javax.swing.JFrame {
 
     private void btnSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarClienteActionPerformed
         // TODO add your handling code here:
-        cadClientes.cadastraCliente();
-        JOptionPane.showMessageDialog(this, "Cliente Cadastrado com Sucesso");
-        cadClientes.limpaTela();
+        try{
+          cadClientes.cadastraCliente();
+          JOptionPane.showMessageDialog(this, "Cliente Cadastrado com Sucesso");
+          cadClientes.limpaTela();
+        }catch (Exception ex){
+          JOptionPane.showMessageDialog(this, "Deu erro!!");
+          ex.printStackTrace(); 
+        }
+        
     }//GEN-LAST:event_btnSalvarClienteActionPerformed
 
     private void btnConsultaCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaCpfActionPerformed

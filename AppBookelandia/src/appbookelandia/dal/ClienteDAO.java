@@ -4,8 +4,7 @@ import appbookelandia.model.Cliente;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import appbookelandia.model.Login;
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class ClienteDAO implements ICrud<Cliente>{
     
@@ -49,9 +48,19 @@ public class ClienteDAO implements ICrud<Cliente>{
     
 
     @Override
-    public void adiciona(Cliente t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void adiciona(Cliente t) throws SQLException {
+
+        String sql = "insert into clientes (cpf,nome,telefone,endereço,dataDeCadastro) values(?,?,?,?,?);";
+        PreparedStatement ps = conexao.getConexao().prepareStatement(sql);
+        ps.setString(1,t.getCpf());
+        ps.setString(2,t.getNome());
+        ps.setString(3,t.getTelefone());
+        ps.setString(4, t.getEndereco());
+        ps.setDate(5, Date.valueOf(t.getData_de_cadastro()));
+        
+        ps.execute();
+        conexao.fecha();
+        }
 
     @Override
     public void altera(Cliente t) {

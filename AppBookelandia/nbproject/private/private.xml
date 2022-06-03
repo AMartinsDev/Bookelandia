@@ -2,15 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/arthu/Desktop/ENTRY%20POINT%20%20-%20JAVA/BackEndEntryPoint/AppBookelandia/src/appbookelandia/controler/ControllerCadProdutos.java</file>
-            <file>file:/C:/Users/arthu/Desktop/ENTRY%20POINT%20%20-%20JAVA/BackEndEntryPoint/AppBookelandia/src/appbookelandia/view/FrmCadProdutos.java</file>
-            <file>file:/C:/Users/arthu/Desktop/ENTRY%20POINT%20%20-%20JAVA/BackEndEntryPoint/AppBookelandia/src/appbookelandia/model/Produto.java</file>
-            <file>file:/C:/Users/arthu/Desktop/ENTRY%20POINT%20%20-%20JAVA/BackEndEntryPoint/AppBookelandia/src/appbookelandia/controler/ControllerCadClientes.java</file>
-            <file>file:/C:/Users/arthu/Desktop/ENTRY%20POINT%20%20-%20JAVA/BackEndEntryPoint/AppBookelandia/src/appbookelandia/model/Login.java</file>
-            <file>file:/C:/Users/arthu/Desktop/ENTRY%20POINT%20%20-%20JAVA/BackEndEntryPoint/AppBookelandia/src/appbookelandia/view/FrmCadCliente.java</file>
-            <file>file:/C:/Users/arthu/Desktop/ENTRY%20POINT%20%20-%20JAVA/BackEndEntryPoint/AppBookelandia/src/appbookelandia/model/CategoriaDoProduto.java</file>
-            <file>file:/C:/Users/arthu/Desktop/ENTRY%20POINT%20%20-%20JAVA/BackEndEntryPoint/AppBookelandia/src/appbookelandia/view/FrmPrincipal.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

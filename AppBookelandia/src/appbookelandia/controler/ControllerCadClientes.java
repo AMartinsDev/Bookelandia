@@ -21,7 +21,7 @@ public class ControllerCadClientes {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public void cadastraCliente(){
+    public void cadastraCliente() throws SQLException{
         
         Cliente c = new Cliente();
         c.setNome(view.getTxtNomeCliente().getText());
@@ -29,6 +29,9 @@ public class ControllerCadClientes {
         c.setEndereco(view.getTxtEndCliente().getText());
         c.setTelefone(view.getTxtTelCliente().getText());
         c.setData_de_cadastro(LocalDate.now());
+        
+        ClienteDAO clienteDao = new ClienteDAO();
+        clienteDao.adiciona(c);
         
         Login log = new Login();
         log.setEmail(view.getTxtEmailCliente().getText());
