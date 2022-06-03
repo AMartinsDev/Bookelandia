@@ -47,11 +47,13 @@ public class FrmCadCliente extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtSenhaCliente = new javax.swing.JPasswordField();
         btnConsultaCpf = new javax.swing.JButton();
+        btnExcluiCliente = new javax.swing.JButton();
+        btnAlteraCliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 255));
 
-        btnSalvarCliente.setText("SALVAR");
+        btnSalvarCliente.setText("Cadastrar Cliente");
         btnSalvarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarClienteActionPerformed(evt);
@@ -77,6 +79,20 @@ public class FrmCadCliente extends javax.swing.JFrame {
             }
         });
 
+        btnExcluiCliente.setText("Excluir Cliente");
+        btnExcluiCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluiClienteActionPerformed(evt);
+            }
+        });
+
+        btnAlteraCliente.setText("Alterar Dados");
+        btnAlteraCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlteraClienteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,11 +100,6 @@ public class FrmCadCliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnConsultaCpf)
-                        .addGap(36, 36, 36)
-                        .addComponent(btnSalvarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -113,7 +124,19 @@ public class FrmCadCliente extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(txtTelCliente, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtCpfCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)))
-                        .addGap(11, 11, 11))))
+                        .addGap(11, 11, 11))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnConsultaCpf)
+                            .addComponent(btnExcluiCliente))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnAlteraCliente)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnSalvarCliente)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,11 +165,15 @@ public class FrmCadCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtSenhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalvarCliente)
-                    .addComponent(btnConsultaCpf))
-                .addGap(36, 36, 36))
+                    .addComponent(btnConsultaCpf)
+                    .addComponent(btnSalvarCliente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnExcluiCliente)
+                    .addComponent(btnAlteraCliente))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
@@ -154,27 +181,53 @@ public class FrmCadCliente extends javax.swing.JFrame {
 
     private void btnSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarClienteActionPerformed
         // TODO add your handling code here:
-        try{
-          cadClientes.cadastraCliente();
-          JOptionPane.showMessageDialog(this, "Cliente Cadastrado com Sucesso");
-          cadClientes.limpaTela();
-        }catch (Exception ex){
-          JOptionPane.showMessageDialog(this, "Deu erro!!");
-          ex.printStackTrace(); 
+        try {
+            cadClientes.cadastraCliente();
+            JOptionPane.showMessageDialog(this, "Cliente Cadastrado com Sucesso");
+            cadClientes.limpaTela();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Deu erro!!");
+            ex.printStackTrace();
         }
-        
+
     }//GEN-LAST:event_btnSalvarClienteActionPerformed
 
     private void btnConsultaCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaCpfActionPerformed
-           // TODO add your handling code here:
-           try{
-               cadClientes.consultaCliente();
-           }catch (Exception ex) {
-               JOptionPane.showMessageDialog(this, "Deu erro!!");
-               ex.printStackTrace();
-           }
-           
+        // TODO add your handling code here:
+        try {
+            cadClientes.consultaCliente();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Deu erro!!");
+            ex.printStackTrace();
+        }
+
     }//GEN-LAST:event_btnConsultaCpfActionPerformed
+
+    /*
+    private void btnExcluiClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluiClienteActionPerformed
+        // TODO add your handling code here:
+        try {
+            cadClientes.excluiCliente();
+            JOptionPane.showMessageDialog(this, "Cliente Excluido com Sucesso");
+            cadClientes.limpaTela();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Deu erro!!");
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_btnExcluiClienteActionPerformed
+    */
+    
+    private void btnAlteraClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlteraClienteActionPerformed
+        // TODO add your handling code here:
+        try {
+            cadClientes.alteraCliente();
+            JOptionPane.showMessageDialog(this, "Update feito com Sucesso");
+            cadClientes.limpaTela();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Deu erro!!");
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_btnAlteraClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,7 +266,9 @@ public class FrmCadCliente extends javax.swing.JFrame {
     
     private ControllerCadClientes cadClientes;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlteraCliente;
     private javax.swing.JButton btnConsultaCpf;
+    private javax.swing.JButton btnExcluiCliente;
     private javax.swing.JButton btnSalvarCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

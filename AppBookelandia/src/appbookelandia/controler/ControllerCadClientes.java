@@ -6,40 +6,41 @@ import appbookelandia.view.FrmCadCliente;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.sql.SQLException;
+
 /**
  * @author Arthur
  */
 public class ControllerCadClientes {
-    
+
     private FrmCadCliente view;
-    
-    public ControllerCadClientes(FrmCadCliente view){
+
+    public ControllerCadClientes(FrmCadCliente view) {
         this.view = view;
     }
 
     public ControllerCadClientes() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    public void cadastraCliente() throws SQLException{
-        
+
+    public void cadastraCliente() throws SQLException {
+
         Cliente c = new Cliente();
         c.setNome(view.getTxtNomeCliente().getText());
         c.setCpf(view.getTxtCpfCliente().getText());
         c.setEndereco(view.getTxtEndCliente().getText());
         c.setTelefone(view.getTxtTelCliente().getText());
         c.setData_de_cadastro(LocalDate.now());
-        
+
         ClienteDAO clienteDao = new ClienteDAO();
         clienteDao.adiciona(c);
-        
+
         Login log = new Login();
         log.setEmail(view.getTxtEmailCliente().getText());
         log.setSenha(Arrays.toString(view.getTxtSenhaCliente().getPropertyChangeListeners()));
         log.setNivel_de_acesso(NivelDeAcesso.Cliente);
-        
+
     }
-    
+
     public void limpaTela() {
         view.getTxtCpfCliente().setText("");
         view.getTxtNomeCliente().setText("");
@@ -48,34 +49,47 @@ public class ControllerCadClientes {
         view.getTxtTelCliente().setText("");
         view.getTxtEndCliente().setText("");
     }
+
     
-    public void consultaCliente() throws SQLException{
+    public void alteraCliente() throws SQLException{
+        Cliente c = new Cliente();
+        c.setNome(view.getTxtNomeCliente().getText());
+        c.setCpf(view.getTxtCpfCliente().getText());
+        c.setEndereco(view.getTxtEndCliente().getText());
+        c.setTelefone(view.getTxtTelCliente().getText());
+        c.setData_de_cadastro(LocalDate.now());
+
+        ClienteDAO clienteDao = new ClienteDAO();
+        clienteDao.altera(c);
+    }
+    
+    
+    public void consultaCliente() throws SQLException {
         String cpf = view.getTxtCpfCliente().getText();
-        
+
         Cliente c;
         ClienteDAO clienteDao = new ClienteDAO();
         Cliente cliente = clienteDao.recupera(cpf);
-        
-        if(cliente != null){
+
+        if (cliente != null) {
             view.getTxtNomeCliente().setText(cliente.getNome());
             view.getTxtEndCliente().setText(cliente.getEndereco());
             view.getTxtTelCliente().setText(cliente.getTelefone());
-        } 
+        }
     }
+
+    /*public void excluiCliente() throws SQLException {
+
+        Cliente c = new Cliente();
+        c.setNome(view.getTxtNomeCliente().getText());
+        c.setCpf(view.getTxtCpfCliente().getText());
+        c.setEndereco(view.getTxtEndCliente().getText());
+        c.setTelefone(view.getTxtTelCliente().getText());
+        c.setData_de_cadastro(LocalDate.now());
+
+        ClienteDAO clienteDao = new ClienteDAO();
+        clienteDao.exclui(c);
+    }
+    */
 }
         
-        //TENTEI IMPLEMENTAR UM METODO DE CONSULTA DO EMAIL DO CLIENTE
-        //POREM, NA MODELAGEM DO BD, A ASSOCIAÇÃO DE EMAIL - CLIENTE
-        //NÃO FOI FEITA.
-
-        /*public void consultaLoginCliente() throws SQLException{
-        String email = view.getTxtEmailCliente().getText();
-        
-        Login l;
-        ClienteDAO clienteDao = new ClienteDAO();
-        Login l = clienteDao.recuperaLogin(email);
-        
-        if(login != null){
-            view.getTxtNomeCliente().setText(cliente.getNome());
-            view.getTxtEmailCliente().setText(loginemail);
-        }*/
