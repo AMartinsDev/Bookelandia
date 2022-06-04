@@ -80,11 +80,6 @@ public class FrmCadCliente extends javax.swing.JFrame {
         });
 
         btnExcluiCliente.setText("Excluir Cliente");
-        btnExcluiCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluiClienteActionPerformed(evt);
-            }
-        });
 
         btnAlteraCliente.setText("Alterar Dados");
         btnAlteraCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -203,19 +198,7 @@ public class FrmCadCliente extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnConsultaCpfActionPerformed
 
-    /*
-    private void btnExcluiClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluiClienteActionPerformed
-        // TODO add your handling code here:
-        try {
-            cadClientes.excluiCliente();
-            JOptionPane.showMessageDialog(this, "Cliente Excluido com Sucesso");
-            cadClientes.limpaTela();
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Deu erro!!");
-            ex.printStackTrace();
-        }
-    }//GEN-LAST:event_btnExcluiClienteActionPerformed
-    */
+    /*    */
     
     private void btnAlteraClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlteraClienteActionPerformed
         // TODO add your handling code here:
